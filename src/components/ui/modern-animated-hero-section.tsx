@@ -15,10 +15,9 @@ interface Character {
 
 const TypingTitle = () => {
   const phrases = [
-    'Grace Code Systems',
-    'Tecnologia que conecta.',
-    'Automações inteligentes.',
-    'Sistemas eficientes.'
+    'Olá, eu sou a Laura',
+    'Desenvolvedora Full Stack especializada em transformar ideias em soluções digitais',
+    'Como posso ajudar?'
   ];
   
   const [currentStringIndex, setCurrentStringIndex] = useState(0);
@@ -57,7 +56,8 @@ const TypingTitle = () => {
   return (
     <div className="flex justify-center w-full items-center min-h-[120px]">
       <h1 
-        className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider text-center whitespace-nowrap ${codeFont.className}`}
+        className={`text-white text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-widest text-center leading-relaxed max-w-5xl mx-auto ${codeFont.className}`}
+        style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.3)' }}
       >
         {currentText}
         <span className="inline-block w-[5px] h-[0.9em] bg-white ml-2 -mb-[4px] animate-pulse"></span>
