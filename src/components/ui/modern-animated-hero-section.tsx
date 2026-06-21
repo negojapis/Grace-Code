@@ -30,7 +30,7 @@ const TypingTitle = () => {
 
     const handleType = () => {
       if (isDeleting) {
-        setCurrentText(fullText.substring(0, currentText.length - 1));
+        setCurrentText(fullText.substring(0, Math.max(0, currentText.length - 3)));
       } else {
         setCurrentText(fullText.substring(0, currentText.length + 1));
       }
@@ -46,7 +46,7 @@ const TypingTitle = () => {
       timeout = setTimeout(() => {}, 200);
     } else {
       // Typing speed
-      const delay = isDeleting ? 30 : 80;
+      const delay = isDeleting ? 5 : 40;
       timeout = setTimeout(handleType, delay);
     }
 
@@ -72,7 +72,7 @@ const RainingLetters: React.FC = () => {
 
   const createCharacters = useCallback(() => {
     const allChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?"
-    const charCount = 300
+    const charCount = 650
     const newCharacters: Character[] = []
 
     for (let i = 0; i < charCount; i++) {
@@ -140,9 +140,9 @@ const RainingLetters: React.FC = () => {
       {characters.map((char, index) => (
         <span
           key={index}
-          className={`absolute text-xs transition-colors duration-100 ${
+          className={`absolute text-sm transition-colors duration-100 ${
             activeIndices.has(index)
-              ? "text-[#FF5B00] text-base scale-125 z-10 font-bold animate-pulse"
+              ? "text-[#FF5B00] text-lg scale-125 z-10 font-bold animate-pulse"
               : "text-[#A8A8A8] font-light"
           }`}
           style={{
